@@ -10,8 +10,8 @@ class Api::V1::VehiclesController < ApplicationController
   
     #GET /vehicle/1
     def show
-      @reviews = Review.where(vehicle_id: params[:id])
-      render json: { vehicle: @vehicle, reviews: @reviews }
+      @vehicles = Vehicle.where(vehicle_id: params[:id])
+      render json: { vehicle: @vehicle, reviews: @vehicles }
     end
   
     #POST /vehicles
@@ -48,9 +48,6 @@ class Api::V1::VehiclesController < ApplicationController
   
     private
     # Methods we place in private can only be accessed by other methods on our vehicles controller
-  
-    # In our set_vehicle I noticed I had @vehicle as @vehicle, this will not work as we are calling it with a lowercase m everywhere-else
-    # Make sure to correct this typo If it is in your project
     def set_vehicle
       @vehicle = vehicle.find(params[:id])
     end
