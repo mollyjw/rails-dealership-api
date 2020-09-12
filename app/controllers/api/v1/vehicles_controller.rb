@@ -31,7 +31,6 @@ class Api::V1::VehiclesController < ApplicationController
       else
         render json: @vehicle.errors, status: :unprocessable_entity
       end
-  
     end
   
     #DELETE /vehicles/1
@@ -55,4 +54,4 @@ class Api::V1::VehiclesController < ApplicationController
     def vehicle_params
       params.require(:vehicle).permit(:bodystyle, :year, :make, :model, :color, :color, :mileage, :purchase_year, :condition, :image, :price)
     end
-  
+end
