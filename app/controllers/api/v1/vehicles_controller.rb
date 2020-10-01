@@ -4,16 +4,26 @@ class Api::V1::VehiclesController < ApplicationController
   
     # GET /vehicles
     def index
-      @vehicles = Vehicle.all
-      render json: @vehicles
+      @vehicles = Vehicle.paginate(:page => params[:id], :per_page => 10)
+      # @vehicles = Vehicle.all
+      # render json: @vehicles
     end
   
+    # def paginate
+    #   @vehicles = Vehicle.paginate(:page => params[:id], :per_page => 10)
+    # end
+
     #GET /vehicle/1
     def show
       @vehicles = Vehicle.where(vehicle_id: params[:id])
-      render json: { vehicle: @vehicle, reviews: @vehicles }
+      render json: { vehicle: @vehicle }
     end
   
+    # def get
+    #   @vehicles = Vehicle.where(vehicle_id: params[:bodytype])
+    #   render json: { vehicle: @vehicle }
+    # end
+
     #POST /vehicles
     def create
       @vehicle = Vehicle.new(vehicle_params)
