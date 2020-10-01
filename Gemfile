@@ -33,7 +33,7 @@ group :development, :test do
 end
 
 # for pagination
-gem 'will_paginate', '~> 3.3.0'
+gem 'will_paginate'
 
 group :development do
   gem 'listen', '~> 3.2'

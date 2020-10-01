@@ -4,9 +4,9 @@ class Api::V1::VehiclesController < ApplicationController
   
     # GET /vehicles
     def index
-      @vehicles = Vehicle.paginate(:page => params[:id], :per_page => 10)
+      @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 10)
       # @vehicles = Vehicle.all
-      # render json: @vehicles
+      render json: @vehicles
     end
   
     # def paginate
